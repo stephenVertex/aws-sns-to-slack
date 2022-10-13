@@ -55,4 +55,4 @@ Value               arn:aws:sns:us-east-1:12345678:monitoring-and-alerting-SNSTo
 # Env vars
 
 - `SLACK_CHANNEL`
-- `SLACK_WEBHOOK` https://hooks.slack.com/services/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
+- `SLACK_WEBHOOK`
