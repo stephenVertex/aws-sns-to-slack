@@ -44,7 +44,9 @@ def lambda_handler(event: SNSEvent, context: LambdaContext):
                         f"Status: {slack_response.status_code}")
             slack_response.raise_for_status()
         else:
-            logger.error(f"Unsupported subject: {subject}")
+            #logger.error(f"Unsupported subject: {subject}")
+            
+            slack_response: Response = slack.simple_send(message)
 
 
 def is_json(string):

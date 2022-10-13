@@ -63,3 +63,14 @@ def send(alarm_event: CloudWatchAlarmEvent) -> Response:
     logger.debug(f"Response from Slack to channel: {slack_message['channel']} "
                  f"is: {str(status_code)} response: {str(response.raw)}")
     return response
+
+def simple_send(message):
+    slack_message = dict(channel=SLACK_CHANNEL,
+                         username='Livestream-monitoring-v2',
+                         text=str(message))
+
+    response = requests.post(SLACK_HOOK_URL, data=json.dumps(slack_message))    
+    status_code = response.status_code
+    logger.debug(f"Response from Slack to channel: {slack_message['channel']} "
+                 f"is: {str(status_code)} response: {str(response.raw)}")
+    return response
